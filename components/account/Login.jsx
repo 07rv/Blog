@@ -1,11 +1,21 @@
+import React, { useState } from "react";
+import Signin from "./Signin";
+import Signup from "./Signup";
 import { Box } from "@mui/material";
-import React from "react";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Login = () => {
+  const [toggle, setToggle] = useState("login");
+
+  const toggleButton = (toggleState) => {
+    setToggle(toggleState);
+  };
   return (
-    <Box display="flex" alignItems="center" justifyContent="center">
-      <AccountCircleIcon />
+    <Box>
+      {toggle === "login" ? (
+        <Signin toggleButton={toggleButton} />
+      ) : (
+        <Signup toggleButton={toggleButton} />
+      )}
     </Box>
   );
 };
