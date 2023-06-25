@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { Tune } from "@mui/icons-material";
 
 const Signup = ({ setToggle }) => {
   const [inputField, setInputField] = useState({
