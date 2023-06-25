@@ -11,12 +11,14 @@ import {
 } from "@mui/material";
 
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { Tune } from "@mui/icons-material";
 
-const Signup = (toggleState) => {
+const Signup = ({ setToggle }) => {
   return (
     <Container component="main" maxWidth="xs">
       <Box
         sx={{
+          marginTop: 8,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -78,8 +80,11 @@ const Signup = (toggleState) => {
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
+              <Link
+                sx={{ cursor: "pointer" }}
+                onClick={() => setToggle("SignIn")}
+              >
+                Already have an account? Sign In
               </Link>
             </Grid>
           </Grid>

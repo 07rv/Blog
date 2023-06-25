@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
-const Signin = (toggleState) => {
+const Signin = ({ setToggle }) => {
   return (
     <Container component="main" maxWidth="xs">
       <Box
@@ -59,12 +59,13 @@ const Signin = (toggleState) => {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
+              <Link href="#">Forgot password?</Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link
+                sx={{ cursor: "pointer" }}
+                onClick={() => setToggle("SignUp")}
+              >
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

@@ -4,17 +4,14 @@ import Signup from "./Signup";
 import { Box } from "@mui/material";
 
 const Login = () => {
-  const [toggle, setToggle] = useState("login");
+  const [toggle, setToggle] = useState("SignIn");
 
-  const toggleButton = (toggleState) => {
-    setToggle(toggleState);
-  };
   return (
     <Box>
-      {toggle === "login" ? (
-        <Signin toggleButton={toggleButton} />
+      {toggle === "SignIn" ? (
+        <Signin setToggle={setToggle} />
       ) : (
-        <Signup toggleButton={toggleButton} />
+        <Signup setToggle={setToggle} />
       )}
     </Box>
   );
