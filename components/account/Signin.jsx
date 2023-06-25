@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import {
   Avatar,
   Button,
@@ -8,10 +8,61 @@ import {
   Box,
   Typography,
   Container,
+  Modal,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 const Signin = ({ setToggle }) => {
+  const [inputField, setInputField] = useState({
+    email: "",
+    password: "",
+  });
+  const [errorField, setErrorField] = useState({
+    email: "",
+    password: "",
+  });
+
+  const inputHandler = (name, value) => {
+    setInputField((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    setErrorField((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const setErrorMessage = (field, errorMessage) => {
+    setErrorField((prevState) => ({
+      ...prevState,
+      [field]: errorMessage,
+    }));
+  };
+
+  const submitButton = () => {
+    if (!checkAndSetValidation()) {
+      console.log(123456);
+    }
+  };
+
+  const checkAndSetValidation = () => {
+    var hasError = false;
+    Object.keys(inputField).map((field) => {
+      if (field === "email") {
+        if (inputField[field] === "") {
+          setErrorMessage(field, "Please enter email");
+          hasError = true;
+        }
+      } else if (field === "password") {
+        if (inputField[field] === "") {
+          setErrorMessage(field, "Please enter password");
+          hasError = true;
+        }
+      }
+    });
+    return hasError;
+  };
   return (
     <Container component="main" maxWidth="xs">
       <Box
@@ -38,6 +89,7 @@ const Signin = ({ setToggle }) => {
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={(e) => inputHandler(e.target.name, e.target.value)}
           />
           <TextField
             margin="normal"
@@ -48,12 +100,14 @@ const Signin = ({ setToggle }) => {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={(e) => inputHandler(e.target.name, e.target.value)}
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            onClick={submitButton}
           >
             Sign In
           </Button>
