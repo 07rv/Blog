@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import {
   Avatar,
   Button,
@@ -14,6 +14,70 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Tune } from "@mui/icons-material";
 
 const Signup = ({ setToggle }) => {
+  const [inputField, setInputField] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+  const [errorField, setErrorField] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+
+  const inputHandler = (name, value) => {
+    setInputField((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    setErrorField((prevState) => ({
+      ...prevState,
+      [name]: "",
+    }));
+  };
+
+  const setErrorMessage = (field, errorMessage) => {
+    setErrorField((prevState) => ({
+      ...prevState,
+      [field]: errorMessage,
+    }));
+  };
+
+  const submitButton = () => {
+    if (!checkAndSetValidation()) {
+      console.log(123456);
+    }
+  };
+
+  const checkAndSetValidation = () => {
+    var hasError = false;
+    Object.keys(inputField).map((field) => {
+      if (field === "firstName") {
+        if (inputField[field] === "") {
+          setErrorMessage(field, "Please enter First Name");
+          hasError = true;
+        }
+      } else if (field === "lastName") {
+        if (inputField[field] === "") {
+          setErrorMessage(field, "Please enter last Name");
+          hasError = true;
+        }
+      } else if (field === "email") {
+        if (inputField[field] === "") {
+          setErrorMessage(field, "Please enter Email");
+          hasError = true;
+        }
+      } else if (field === "password") {
+        if (inputField[field] === "") {
+          setErrorMessage(field, "Please enter password");
+          hasError = true;
+        }
+      }
+    });
+    return hasError;
+  };
   return (
     <Container component="main" maxWidth="xs">
       <Box
@@ -41,6 +105,11 @@ const Signup = ({ setToggle }) => {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                error={errorField && errorField.firstName}
+                helperText={
+                  errorField && errorField.firstName ? errorField.firstName : ""
+                }
+                onChange={(e) => inputHandler(e.target.name, e.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -51,6 +120,11 @@ const Signup = ({ setToggle }) => {
                 label="Last Name"
                 name="lastName"
                 autoComplete="family-name"
+                error={errorField && errorField.lastName}
+                helperText={
+                  errorField && errorField.lastName ? errorField.lastName : ""
+                }
+                onChange={(e) => inputHandler(e.target.name, e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -61,6 +135,11 @@ const Signup = ({ setToggle }) => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                error={errorField && errorField.email}
+                helperText={
+                  errorField && errorField.email ? errorField.email : ""
+                }
+                onChange={(e) => inputHandler(e.target.name, e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -72,10 +151,20 @@ const Signup = ({ setToggle }) => {
                 type="password"
                 id="password"
                 autoComplete="new-password"
+                error={errorField && errorField.password}
+                helperText={
+                  errorField && errorField.password ? errorField.password : ""
+                }
+                onChange={(e) => inputHandler(e.target.name, e.target.value)}
               />
             </Grid>
           </Grid>
-          <Button fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+          <Button
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+            onClick={submitButton}
+          >
             Sign Up
           </Button>
           <Grid container justifyContent="flex-end">

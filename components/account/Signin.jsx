@@ -29,7 +29,7 @@ const Signin = ({ setToggle }) => {
     }));
     setErrorField((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: "",
     }));
   };
 
@@ -42,7 +42,7 @@ const Signin = ({ setToggle }) => {
 
   const submitButton = () => {
     if (!checkAndSetValidation()) {
-      console.log(123456);
+      console.log("signup");
     }
   };
 
@@ -89,6 +89,8 @@ const Signin = ({ setToggle }) => {
             name="email"
             autoComplete="email"
             autoFocus
+            error={errorField && errorField.email}
+            helperText={errorField && errorField.email ? errorField.email : ""}
             onChange={(e) => inputHandler(e.target.name, e.target.value)}
           />
           <TextField
@@ -100,6 +102,10 @@ const Signin = ({ setToggle }) => {
             type="password"
             id="password"
             autoComplete="current-password"
+            error={errorField && errorField.password}
+            helperText={
+              errorField && errorField.email ? errorField.password : ""
+            }
             onChange={(e) => inputHandler(e.target.name, e.target.value)}
           />
           <Button
