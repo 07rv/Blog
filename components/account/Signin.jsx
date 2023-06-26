@@ -89,7 +89,7 @@ const Signin = ({ setToggle }) => {
             name="email"
             autoComplete="email"
             autoFocus
-            error={errorField && errorField.email}
+            error={errorField && errorField.email != ""}
             helperText={errorField && errorField.email ? errorField.email : ""}
             onChange={(e) => inputHandler(e.target.name, e.target.value)}
           />
@@ -102,7 +102,7 @@ const Signin = ({ setToggle }) => {
             type="password"
             id="password"
             autoComplete="current-password"
-            error={errorField && errorField.password}
+            error={errorField && errorField.password != ""}
             helperText={
               errorField && errorField.email ? errorField.password : ""
             }

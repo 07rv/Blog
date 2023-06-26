@@ -104,7 +104,7 @@ const Signup = ({ setToggle }) => {
                 id="firstName"
                 label="First Name"
                 autoFocus
-                error={errorField && errorField.firstName}
+                error={errorField && errorField.firstName != ""}
                 helperText={
                   errorField && errorField.firstName ? errorField.firstName : ""
                 }
@@ -119,7 +119,7 @@ const Signup = ({ setToggle }) => {
                 label="Last Name"
                 name="lastName"
                 autoComplete="family-name"
-                error={errorField && errorField.lastName}
+                error={errorField && errorField.lastName != ""}
                 helperText={
                   errorField && errorField.lastName ? errorField.lastName : ""
                 }
@@ -134,7 +134,7 @@ const Signup = ({ setToggle }) => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                error={errorField && errorField.email}
+                error={errorField && errorField.email != ""}
                 helperText={
                   errorField && errorField.email ? errorField.email : ""
                 }
@@ -150,7 +150,7 @@ const Signup = ({ setToggle }) => {
                 type="password"
                 id="password"
                 autoComplete="new-password"
-                error={errorField && errorField.password}
+                error={errorField && errorField.password != ""}
                 helperText={
                   errorField && errorField.password ? errorField.password : ""
                 }
