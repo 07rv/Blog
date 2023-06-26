@@ -44,9 +44,19 @@ const Signup = ({ setToggle }) => {
     }));
   };
 
-  const submitButton = () => {
+  const submitButton = async () => {
     if (!checkAndSetValidation()) {
-      console.log(123456);
+      const res = await fetch("/api/register", {
+        body: JSON.stringify({
+          firstName: inputField.firstName,
+          lastName: inputField.lastName,
+          fullName: `${inputField.firstName} ${inputField.lastName}`,
+          email: inputField.email,
+          password: inputField.password,
+        }),
+        method: "POST",
+      });
+      const data = await res.json();
     }
   };
 

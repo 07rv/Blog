@@ -42,10 +42,15 @@ const Signin = ({ setToggle }) => {
 
   const submitButton = async () => {
     if (!checkAndSetValidation()) {
-      const response = await fetch("/api/login", {
-        body: inputField,
+      const res = await fetch("/api/login", {
+        body: JSON.stringify({
+          email: inputField.email,
+          password: inputField.password,
+        }),
         method: "POST",
       });
+      const data = await res.json();
+      console.log(data, 123456);
     }
   };
 
