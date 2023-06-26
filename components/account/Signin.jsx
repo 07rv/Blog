@@ -40,9 +40,12 @@ const Signin = ({ setToggle }) => {
     }));
   };
 
-  const submitButton = () => {
+  const submitButton = async () => {
     if (!checkAndSetValidation()) {
-      console.log("signup");
+      const response = await fetch("/api/login", {
+        body: inputField,
+        method: "POST",
+      });
     }
   };
 

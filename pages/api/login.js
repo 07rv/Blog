@@ -1,2 +1,5 @@
-import connect from "../../lib/mongodb";
-import users from "../../modal/schema";
+export default function handler(req, res) {
+  try {
+    res.status(200).json({ name: "login" });
+  } catch (error) {}
+}
