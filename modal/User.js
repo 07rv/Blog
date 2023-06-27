@@ -3,13 +3,11 @@ import mongoose from "mongoose";
 const UserSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: [true, "Firstname is required"],
+    required: true,
   },
   lastName: {
     type: String,
     required: true,
-    minLength: [4, "Name Min"],
-    maxLength: [20, "Name max"],
   },
   fullName: {
     type: String,

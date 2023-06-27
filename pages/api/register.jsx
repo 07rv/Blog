@@ -1,16 +1,22 @@
-import { dbConnect } from "../../lib/mongodb";
+import dbConnect from "../../lib/mongodb";
 import User from "../../modal/User";
 
 export default async function handler(req, res) {
-  dbConnect().catch((error) => res.json(error));
-  const { method } = req;
+  await dbConnect();
 
-  switch (method) {
-    case "GET":
-      try {
-        res.status(200).json({ success: "werftghjg" });
-      } catch (error) {
-        res.status(405).json({ success: "1234t" });
-      }
-  }
+  const body = req.body;
+  const user = await new User(
+    {
+      firstName: body.firstName,
+      lastName: body.lastName,
+      fullName: body.fullName,
+      email: body.email,
+      password: body.password,
+    },
+    {
+      version: false,
+    }
+  );
+  const newuser = await user.save();
+  res.status(200).json({ newuser });
 }
