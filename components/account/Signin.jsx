@@ -48,9 +48,14 @@ const Signin = ({ setToggle }) => {
           password: inputField.password,
         }),
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       const data = await res.json();
-      console.log(data, 123456);
+      if (data.success) {
+        console.log(data.accessToken, data.refreshToken, data.user);
+      }
     }
   };
 
