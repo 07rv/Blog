@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   Avatar,
   Button,
@@ -11,6 +11,7 @@ import {
   Modal,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { DataContext } from "@/context/DataProvider";
 
 const Signin = ({ setToggle }) => {
   const [inputField, setInputField] = useState({
@@ -21,7 +22,7 @@ const Signin = ({ setToggle }) => {
     email: "",
     password: "",
   });
-
+  const { setAccount } = useContext(DataContext);
   const inputHandler = (name, value) => {
     setInputField((prevState) => ({
       ...prevState,
@@ -54,7 +55,15 @@ const Signin = ({ setToggle }) => {
       });
       const data = await res.json();
       if (data.success) {
-        console.log(data.accessToken, data.refreshToken, data.user);
+        sessionStorage.setItem("accessToken", `Bearer ${data.accessToken}`);
+        sessionStorage.setItem("refreshToken", `Bearer ${data.refreshToken}`);
+
+        setAccount({
+          firstName: data.user.firstName,
+          lastName: data.user.lastName,
+          fullName: data.user.fullName,
+          email: data.user.email,
+        });
       }
     }
   };
