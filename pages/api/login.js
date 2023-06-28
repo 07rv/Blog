@@ -1,7 +1,9 @@
 import dbConnect from "../../lib/mongodb";
 import User from "../../modal/User";
+import Token from "@/modal/Token";
 
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 export default async function handler(req, res) {
   await dbConnect();
@@ -15,7 +17,28 @@ export default async function handler(req, res) {
         .exec();
       const hash = await bcrypt.compare(body.password, password.password);
       if (hash) {
-        res.status(200).json({ success: true, singlePerson });
+        const user = {
+          firstName: singlePerson.firstName,
+          lastName: singlePerson.lastName,
+          fullName: singlePerson.fullName,
+          email: singlePerson.email,
+        };
+        const accessToken = jwt.sign(user, process.env.ACCESS_SECRET_KEY, {
+          expiresIn: "15m",
+        });
+        const refreshToken = jwt.sign(user, process.env.REFRESH_SECRET_KEY);
+
+        const token = await new Token({
+          token: accessToken,
+        });
+        await token.save();
+
+        res.status(200).json({
+          success: true,
+          accessToken: accessToken,
+          refreshToken: refreshToken,
+          user: user,
+        });
       } else {
         res.status(400).json({ success: false, error: "Wrong password" });
       }
