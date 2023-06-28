@@ -1,5 +1,5 @@
-import dbConnect from "../../lib/mongodb";
-import User from "../../modal/User";
+import dbConnect from "@/lib/mongodb";
+import User from "@/modal/User";
 
 const bcrypt = require("bcrypt");
 
