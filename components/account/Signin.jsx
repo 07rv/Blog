@@ -13,6 +13,8 @@ import {
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { DataContext } from "@/context/DataProvider";
 
+import { useRouter } from "next/router";
+
 const Signin = ({ setToggle }) => {
   const [inputField, setInputField] = useState({
     email: "",
@@ -33,7 +35,7 @@ const Signin = ({ setToggle }) => {
       [name]: "",
     }));
   };
-
+  const router = useRouter();
   const setErrorMessage = (field, errorMessage) => {
     setErrorField((prevState) => ({
       ...prevState,
@@ -64,6 +66,7 @@ const Signin = ({ setToggle }) => {
           fullName: data.user.fullName,
           email: data.user.email,
         });
+        router.push("/home");
       }
     }
   };

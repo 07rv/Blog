@@ -1,9 +1,10 @@
 import DataProvider from "@/context/DataProvider";
-import LoginPage from "@/components/account/Login";
-export default function Home() {
+import HomePage from "@/components/home/HomePage";
+
+export default function Login() {
   return (
     <DataProvider>
-      <LoginPage />
+      <HomePage />
     </DataProvider>
   );
 }
