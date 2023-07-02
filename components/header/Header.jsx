@@ -15,7 +15,7 @@ const Container = styled(Toolbar)`
 
 const Header = () => {
   return (
-    <Component>
+    <Component position="static">
       <Container>
         <Typography>Home</Typography>
         <Typography>About</Typography>

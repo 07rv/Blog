@@ -1,10 +1,10 @@
 import DataProvider from "@/context/DataProvider";
-import HomePage from "@/components/home/HomePage";
+import LoginPage from "@/components/account/Login";
 
 export default function Login() {
   return (
     <DataProvider>
-      <HomePage />
+      <LoginPage />
     </DataProvider>
   );
 }
