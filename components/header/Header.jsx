@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography, styled } from "@mui/material";
+import { AppBar, Toolbar, styled, Link } from "@mui/material";
 import React from "react";
 
 const Component = styled(AppBar)`
@@ -8,8 +8,10 @@ const Component = styled(AppBar)`
 
 const Container = styled(Toolbar)`
   justify-content: center;
-  & > p {
+  & > a {
     padding: 10px;
+    color: #000;
+    text-decoration: none;
   }
 `;
 
@@ -17,10 +19,10 @@ const Header = () => {
   return (
     <Component position="static">
       <Container>
-        <Typography>Home</Typography>
-        <Typography>About</Typography>
-        <Typography>Contact</Typography>
-        <Typography>Logout</Typography>
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/contact">Contact</Link>
+        <Link href="/login">Logout</Link>
       </Container>
     </Component>
   );
