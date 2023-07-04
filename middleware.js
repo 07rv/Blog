@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 
 export function middleware(req) {
-  const user = req.cookies.get("user")?.value;
-  console.log(user);
+  const user = JSON.parse(req.cookies.get("user")?.value);
+
+  const jwt = user.accessToken;
 }
 
 export const config = {
