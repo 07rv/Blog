@@ -1,21 +1,10 @@
 import { NextResponse } from "next/server";
 
 export function middleware(req) {
-  const { cookies } = req;
-
-  const jwt = cookies.OurwebsiteJWT;
-  const url = req.url;
+  const user = req.cookies.get("user")?.value;
+  console.log(user);
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

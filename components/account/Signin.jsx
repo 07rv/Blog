@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import Cookies from "js-cookie";
 import {
   Avatar,
   Button,
@@ -60,13 +61,20 @@ const Signin = ({ setToggle }) => {
         sessionStorage.setItem("accessToken", `Bearer ${data.accessToken}`);
         sessionStorage.setItem("refreshToken", `Bearer ${data.refreshToken}`);
 
+        Cookies.set(
+          "user",
+          JSON.stringify({
+            accessToken: data.accessToken,
+            refreshToken: data.refreshToken,
+          })
+        );
         setAccount({
           firstName: data.user.firstName,
           lastName: data.user.lastName,
           fullName: data.user.fullName,
           email: data.user.email,
         });
-        router.push("/home");
+        router.push("/");
       }
     }
   };

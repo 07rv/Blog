@@ -15,6 +15,7 @@
     "@mui/material": "^5.13.6",
     "@next/font": "13.4.6",
     "bcrypt": "^5.1.0",
+    "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.3.1",
     "next": "13.4.6",
