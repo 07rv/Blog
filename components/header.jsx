@@ -1,5 +1,5 @@
 import { ImFacebook, ImTwitter, ImYoutube } from "react-icons/im";
-
+import Link from "next/link";
 const header = () => {
   return (
     <header className="bg-gray-50">
@@ -8,19 +8,21 @@ const header = () => {
           <input type="text" className="input-text" placeholder="Search..." />
         </div>
         <div className="shrink w-80 sm:order-2">
-          <a className="font-bold uppercase text-3xl">Design</a>
+          <Link href={"/"} className="font-bold uppercase text-3xl">
+            Design
+          </Link>
         </div>
         <div className="w-96 order-3 flex justify-center">
           <div className="flex gap-6">
-            <a>
+            <Link href={"/"}>
               <ImFacebook color="#888888" />
-            </a>
-            <a>
+            </Link>
+            <Link href={"/"}>
               <ImTwitter color="#888888" />
-            </a>
-            <a>
+            </Link>
+            <Link href={"/"}>
               <ImYoutube color="#888888" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
