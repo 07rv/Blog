@@ -22,7 +22,7 @@ const banner = () => {
             <div id="moon"></div>
           </div>
 
-          <img id="earth" src={"/images/earth.jpeg"} />
+          <img id="earth" src={"/images/earth.png"} />
         </div>
       </div>
     </div>
