@@ -5,6 +5,7 @@ const author = () => {
   return (
     <div className="author flex py-5">
       <Image
+        alt="img"
         src={"/authors/author1.jpg"}
         width={40}
         height={40}

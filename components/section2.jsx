@@ -27,6 +27,7 @@ function Post() {
       <div className="images">
         <Link href={"/"}>
           <Image
+            alt="img"
             src={"/images/img1.avif"}
             className="rounded"
             width={500}
