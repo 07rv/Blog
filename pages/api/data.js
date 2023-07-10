@@ -94,7 +94,8 @@ export default {
   Posts: [
     {
       id: 1,
-      title: "Your most unhappy customers are your greatest source of learning",
+      title:
+        "Your most unhappy customers are your greatest source of learning1",
       subtitle:
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
       category: "Business, Travel",
@@ -126,7 +127,8 @@ export default {
     },
     {
       id: 2,
-      title: "Your most unhappy customers are your greatest source of learning",
+      title:
+        "Your most unhappy customers are your greatest source of learning2",
       subtitle:
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
       category: "Business, Travel",
@@ -158,7 +160,8 @@ export default {
     },
     {
       id: 3,
-      title: "Your most unhappy customers are your greatest source of learning",
+      title:
+        "Your most unhappy customers are your greatest source of learning3",
       subtitle:
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
       category: "Business, Travel",
@@ -190,7 +193,8 @@ export default {
     },
     {
       id: 4,
-      title: "Your most unhappy customers are your greatest source of learning",
+      title:
+        "Your most unhappy customers are your greatest source of learning4",
       subtitle:
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
       category: "Business, Travel",
@@ -222,7 +226,8 @@ export default {
     },
     {
       id: 5,
-      title: "Your most unhappy customers are your greatest source of learning",
+      title:
+        "Your most unhappy customers are your greatest source of learning5",
       subtitle:
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
       category: "Business, Travel",
@@ -254,7 +259,8 @@ export default {
     },
     {
       id: 6,
-      title: "Your most unhappy customers are your greatest source of learning",
+      title:
+        "Your most unhappy customers are your greatest source of learning6",
       subtitle:
         "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
       category: "Business, Travel",

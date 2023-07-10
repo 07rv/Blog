@@ -22,7 +22,7 @@ function Post({ data }) {
   return (
     <div className="item">
       <div className="images">
-        <Link href={"/"}>
+        <Link href={`/posts/${id}`}>
           <Image
             alt="img"
             src={img || "/"}
