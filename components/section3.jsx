@@ -49,7 +49,7 @@ function Post({ data }) {
             {title}
           </Link>
         </div>
-        <p className="text-gray-500 py-3">{{ subtitle }}</p>
+        <p className="text-gray-500 py-3">{subtitle}</p>
         <Author />
       </div>
     </div>
