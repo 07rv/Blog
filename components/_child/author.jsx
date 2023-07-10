@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const author = () => {
+const author = ({ author }) => {
   return (
     <div className="author flex py-5">
       <Image

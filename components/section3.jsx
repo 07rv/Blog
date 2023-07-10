@@ -50,7 +50,7 @@ function Post({ data }) {
           </Link>
         </div>
         <p className="text-gray-500 py-3">{subtitle}</p>
-        <Author />
+        <Author author={author} />
       </div>
     </div>
   );
