@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Author from "./_child/author";
 import Image from "next/image";
-
+import getPost from "@/lib/helper";
 const section2 = () => {
   return (
     <section className="container mx-auto md:px-20 py-10">

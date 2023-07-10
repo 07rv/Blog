@@ -2,23 +2,23 @@ const banner = () => {
   return (
     <div className="bg-black banner">
       sdxfcbgvnc
-      <div class="solar-system">
+      <div className="solar-system">
         <div id="sun"></div>
 
-        <div class="orbit mercury-orbit"></div>
-        <div class="mercury-spin">
+        <div className="orbit mercury-orbit"></div>
+        <div className="mercury-spin">
           <div id="mercury"></div>
         </div>
 
-        <div class="orbit venus-orbit"></div>
-        <div class="venus-spin">
+        <div className="orbit venus-orbit"></div>
+        <div className="venus-spin">
           <div id="venus"></div>
         </div>
 
-        <div class="orbit earth-orbit"></div>
-        <div class="earth-spin">
-          <div class="orbit moon-orbit"></div>
-          <div class="moon-spin">
+        <div className="orbit earth-orbit"></div>
+        <div className="earth-spin">
+          <div className="orbit moon-orbit"></div>
+          <div className="moon-spin">
             <div id="moon"></div>
           </div>
 
